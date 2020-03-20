@@ -1,19 +1,21 @@
-import Component from "oj-component";
+import { EventAggregator } from "oj-eventaggregator";
 export interface IOptions {
     autoplay?: boolean;
     loop?: boolean;
+    id?: string;
 }
-export default class YoutubeLoader extends Component<string> {
+export declare const randomString: () => string;
+export declare const getRootElements: <T extends HTMLElement>(selector: string, loaded?: boolean) => T[];
+export declare const parseHTML: <T extends HTMLElement>(html: string) => T;
+export declare class YoutubeLoader extends EventAggregator<"load" | "pause" | "play" | "stop"> {
+    options: IOptions;
+    root: HTMLElement;
     iframe: HTMLIFrameElement;
-    private autoplay;
-    private loop;
-    static mount(options?: IOptions): YoutubeLoader[];
-    private url;
     constructor(root: HTMLElement, options?: IOptions);
-    protected initialize(url: any): void;
-    private load;
     play(): void;
     pause(): void;
     stop(): void;
-    unmount(): void;
+    private mergeOptions;
+    private postMessage;
 }
+export declare const mount: (options?: IOptions) => YoutubeLoader[];
