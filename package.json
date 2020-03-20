@@ -1,16 +1,25 @@
 {
   "name": "oj-youtube-loader",
-  "version": "1.0.0",
-  "description": "A loader that adds youtube video's inline (iframe) based on the given video id",
+  "version": "1.0.1",
+  "homepage": "https://www.orange-juice.nl",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/orange-juice-nl/oj-youtube-loader.git"
+  },
+  "keywords": [
+    "youtube",
+    "loader",
+    "inline"
+  ],
+  "description": "A loader that adds youtube video's inline (iframe) based on the given video id. With play / pause / loop / autoplay support.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc ./src/index.ts --lib esnext,dom --declaration true --outDir ./dist --module commonjs --moduleResolution node --target es5",
-    "share": "npm upgrade && npm version patch && npm run build && npm publish --registry http://web01.oj.local:3000"
+    "share": "npm upgrade && npm version patch -force && npm run build && npm publish --registry https://registry.npmjs.org"
   },
-  "keywords": [],
   "author": "Marius Linders @ Orange Juice<marius.linders@orange-juice.nl>",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "oj-eventaggregator": "^1.0.2"
   }
